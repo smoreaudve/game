@@ -414,3 +414,106 @@ login --------------------------------------
 	}
 ?>
 
+
+--------------------------------------------------- BDD
+-- phpMyAdmin SQL Dump
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Client :  127.0.0.1
+-- Généré le :  Mer 12 Août 2015 à 17:07
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de données :  `test`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `inclusion`
+--
+
+CREATE TABLE IF NOT EXISTS `inclusion` (
+  `id_ville` int(11) NOT NULL,
+  `id_users` int(11) NOT NULL,
+  `click_hour` datetime NOT NULL,
+  PRIMARY KEY (`id_ville`,`id_users`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `inclusion`
+--
+
+INSERT INTO `inclusion` (`id_ville`, `id_users`, `click_hour`) VALUES
+(1, 36, '2015-08-04 18:31:07'),
+(2, 36, '2015-08-05 15:34:39'),
+(3, 36, '2015-08-04 18:25:43');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(100) NOT NULL,
+  `pass` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date_inscription` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `pseudo`, `pass`, `email`, `date_inscription`) VALUES
+(1, 'Patrick', 'PC', 'test@gmail.com', '0000-00-00'),
+(2, 'test', 'test', 'test', '2015-07-20'),
+(3, 'test', 'test', 'test', '2015-07-20'),
+(4, 'test', 'test', 'test', '2015-07-20'),
+(34, 'John', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'john@gmail.com', '2015-07-20'),
+(35, 'Jean', 'a3da4c6307d230e1f1c8ad62e00d05ff1f1f5b52', 'kluj@gmail.com', '2015-07-20'),
+(36, 'Syl', '8efd86fb78a56a5145ed7739dcb00c78581c5375', 'syl@gmail.com', '2015-07-20'),
+(37, 'test', 'test', 'test', '2015-07-27');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ville`
+--
+
+CREATE TABLE IF NOT EXISTS `ville` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) NOT NULL,
+  `hab` bigint(20) NOT NULL,
+  `poli` mediumint(9) NOT NULL,
+  `poll` mediumint(9) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `ville`
+--
+
+INSERT INTO `ville` (`id`, `nom`, `hab`, `poli`, `poll`) VALUES
+(1, 'Nice', 192, 0, 0),
+(2, 'Blagn', 229, 0, 0),
+(3, 'John', 25, 0, 0);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ -----------------------------------------------------
